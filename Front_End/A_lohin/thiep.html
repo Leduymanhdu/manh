@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thiệp Mở</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        .hang {
+            display: flex;
+            perspective: 1000px;
+            overflow: hidden;
+        }
+        .left-side, .right-side {
+            width: 50%;
+            height: 100%;
+            position: relative;
+            backface-visibility: hidden;
+            transform-style: preserve-3d;
+            transition: transform 0.8s;
+        }
+
+        .left-side {
+            background-color: gray;
+            transform-origin: left;
+            transform: rotateY(0deg);
+        }
+
+        .right-side {
+            background-color: red;
+            transform-origin: right;
+            transform: rotateY(0deg);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+        }
+
+        /* Nội dung bên trong, chỉ hiện khi mở */
+        .inside-content {
+            opacity: 0;
+            transition: opacity 0.8s;
+        }
+
+        /* Hiệu ứng khi mở thiệp */
+        .open .left-side {
+            transform: rotateY(-180deg);
+        }
+
+        .open .right-side {
+            transform: rotateY(180deg);
+        }
+
+        /* Hiển thị nội dung khi mở thiệp */
+        .open .inside-content {
+            opacity: 1;
+        }
+
+        .icon {
+            position: absolute;
+            bottom: 10%;
+            right: 10%;
+        }
+        p{
+            color: black;
+        }
+        .mid-side{
+            width: 100%;
+            height: 100%;
+            text-align: center;
+            /* margin-left: -70%; */
+        }
+    </style>
+</head>
+<body>
+
+<section>
+    <div class="khung flex w-full h-72 justify-center p-4  space-x-4">
+        <div class="hang w-1/2 h-full relative" id="card">
+            <!-- Mặt trước bên trái của thiệp -->
+            <div class="left-side" id="leftSide">
+                <div class="anh rounded-full w-24 h-24 bg-gray-300 mx-auto mb-4">
+                    <!-- Có thể thêm hình ảnh tại đây -->
+                </div>
+            </div>
+            <div class="mid-side">
+                <div class="inside-content text-center">
+                    <p class="text-2xl color-black">Chúc mừng bạn đã tham gia chương trình khuyến mãi!</p>
+                    <p>Giảm giá đặc biệt cho khách hàng mới vào ngày 30/4.</p>
+                    <a href="A_lohin/A_login.html" class="icon">
+                        <i class="fab fa-facebook text-blue-600 text-3xl"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div class="hang w-1/2 h-full relative" id="card">
+            <!-- Mặt trước bên trái của thiệp -->
+            <div class="left-side" id="leftSide">
+                <div class="anh rounded-full w-24 h-24 bg-gray-300 mx-auto mb-4">
+                    <!-- Có thể thêm hình ảnh tại đây -->
+                </div>
+            </div>
+            <div class="mid-side">
+                <div class="inside-content text-center">
+                    <p class="text-2xl color-black">Chúc mừng bạn đã tham gia chương trình khuyến mãi!</p>
+                    <p>Giảm giá đặc biệt cho khách hàng mới vào ngày 30/4.</p>
+                    <a href="A_lohin/A_login.html" class="icon">
+                        <i class="fab fa-facebook text-blue-600 text-3xl"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div class="hang w-1/2 h-full relative" id="card">
+            <!-- Mặt trước bên trái của thiệp -->
+            <div class="left-side" id="leftSide">
+                <div class="anh rounded-full w-24 h-24 bg-gray-300 mx-auto mb-4">
+                    <!-- Có thể thêm hình ảnh tại đây -->
+                </div>
+            </div>
+            <div class="mid-side">
+                <div class="inside-content text-center">
+                    <p class="text-2xl color-black">Chúc mừng bạn đã tham gia chương trình khuyến mãi!</p>
+                    <p>Giảm giá đặc biệt cho khách hàng mới vào ngày 30/4.</p>
+                    <a href="A_lohin/A_login.html" class="icon">
+                        <i class="fab fa-facebook text-blue-600 text-3xl"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<script>
+    document.getElementById('leftSide').addEventListener('click', function() {
+        document.getElementById('card').classList.toggle('open');
+    });
+</script>
+
+</body>
+</html>
